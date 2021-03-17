@@ -3,7 +3,7 @@
  * @author: bubao
  * @date: 2021-03-14 17:53:48
  * @last author: bubao
- * @last edit time: 2021-03-17 18:08:06
+ * @last edit time: 2021-03-17 18:30:05
  */
 package main
 
@@ -42,6 +42,10 @@ func main() {
 	flag.StringVar(&inputFilename, "f", "", "uc!文件")
 	flag.StringVar(&rename, "r", "", "mp3 重命名")
 	flag.Parse()
+	if len(flag.Args()) < 1 {
+		flag.Usage()
+		return
+	}
 	var ext string = ".uc!"
 
 	if inputFilename == "" && dirName != "" {
